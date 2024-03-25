@@ -1,0 +1,20 @@
+<div class="buttons">
+  <button (click)="abrirNuevoGrupo()" id="addGroupBtn">Añadir Grupo</button>
+</div>
+<section class="group-list">
+  <h2>Listado de Grupos</h2>
+  <ul class="groups" id="groupList">
+    <li *ngFor="let group of groups">
+      <a (click)="navegarAVistaDestino(group)">
+        <span class="badge">{{ group.id }}</span> {{ group.nameGroup }}
+      </a>
+      <button type="button" class="delete-button" title="delete group">
+        x
+      </button>
+    </li>
+  </ul>
+</section>
+<app-add-group
+  *ngIf="mostrarNuevoGrupo"
+  (cerrar)="cerrarNuevoGrupo()"
+></app-add-group>

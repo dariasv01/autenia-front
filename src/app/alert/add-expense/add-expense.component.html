@@ -1,0 +1,39 @@
+<div class="background">
+    <div class="alert">
+      <span class="close" (click)="cerrarNuevoGasto()">&times;</span>
+      <h2>Añadir Nuevo Gasto</h2>
+      <form>
+        <div class="form-group">
+          <label for="usuario">Usuario:</label>
+          <select class="form-control" id="usuario" name="usuario" required [(ngModel)]="nuevoGasto.idUser">
+            <option value=0 disabled selected>Seleccionar Usuario</option>
+            <option *ngFor="let user of users" [value]=user.id>{{ user.firstName }} {{ user.lastName }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="monto">Monto:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="monto"
+            name="monto"
+            required
+            [(ngModel)]="nuevoGasto.amount"
+          />
+        </div>
+        <div class="form-group">
+          <label for="descripcion">Descripción:</label>
+          <textarea
+            class="form-control"
+            id="descripcion"
+            rows="3"
+            name="descripcion"
+            required
+            [(ngModel)]="nuevoGasto.description"
+          ></textarea>
+        </div>
+        <button type="submit" (click)="crearNuevoGasto()" class="btn btn-primary">Guardar</button>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,53 @@
+/* styles.css */  
+  .group-list {
+    margin-bottom: 40px;
+  }
+  
+  .group-list h2 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .group-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .group-list ul li a {
+    display: block;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+  
+  .group-list ul li:hover {
+    transform: translateY(-5px);
+  }
+  
+.group-list ul li {
+    margin-bottom: 10px;
+    position: relative; /* Necesario para el posicionamiento relativo */
+  }
+  
+  .group-list ul li .delete-button {
+    background-color: #ff6347; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Borde redondeado */
+    padding: 8px 16px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 50%; /* Alinea el botón verticalmente en el centro */
+    transform: translateY(-50%); /* Ajusta la posición vertical */
+    right: 10px; /* Alinea el botón a la derecha */
+  }
+  
+  .group-list ul li .delete-button:hover {
+    background-color: #d6341d; /* Cambia el color de fondo al pasar el ratón */
+  }
+  

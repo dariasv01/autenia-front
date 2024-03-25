@@ -1,0 +1,16 @@
+<div class="background">
+  <div class="alert">
+    <span class="close" (click)="cerrarResultado()">&times;</span>
+    <h2>Listado de Usuarios</h2>
+    <ul id="resultList">
+      <li class="result-item" *ngFor="let user of usersValance; let i = index"expenses>
+        <div class="result-details">
+          <div class="result-info">
+            <span class="payer">{{user.user.firstName}} {{user.user.lastName}}</span>
+            <span class="amount" [style.color]="user.valance < 0 ? 'red' : 'green'">{{user.valance.toFixed(2)}} €</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

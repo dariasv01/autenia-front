@@ -1,0 +1,39 @@
+<div class="buttons">
+  <button (click)="goBack()" class="back-button">Volver Atrás</button>
+  <button (click)="abrirNuevoGasto()" id="addExpenseBtn">Añadir Gasto</button>
+  <button (click)="abrirNuevoUsuario()" id="addUserBtn">Añadir Usuario</button>
+  <button (click)="abrirResultado()" id="calculateBtn">Calcular</button>
+</div>
+
+<section id="expenses">
+  <h2>Listado de Gastos</h2>
+  <ul id="expenseList">
+    <li class="expense-item" *ngFor="let spent of expenses"expenses>
+      <div class="expense-details">
+        <div class="expense-info">
+          <span class="payer">{{obtenerNombrePorId(spent.idUser)}}</span>
+          <span class="date">{{spent.creationDate}}</span>
+        </div>
+      </div>
+      <div class="expense-details">
+        <span class="additional-field">{{ spent.amount }} €</span>
+        <p class="description">
+          {{spent.description}}
+        </p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<app-add-expense
+  *ngIf="mostrarNuevoGasto"
+  (cerrar)="cerrarNuevoGasto()"
+></app-add-expense>
+<app-add-user
+  *ngIf="mostrarNuevoUsuario"
+  (cerrar)="cerrarNuevoUsuario()"
+></app-add-user>
+<app-show-result
+  *ngIf="mostrarResultado"
+  (cerrar)="cerrarResultado()"
+></app-show-result>
