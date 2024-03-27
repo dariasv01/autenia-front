@@ -4,15 +4,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataService {
-  private objeto: any;
+  private objet: any;
 
   constructor() { }
 
-  setObjeto(objeto: any): void {
-    this.objeto = objeto;
+  setObjeto(objet: any): void {
+    this.objet = objet;
   }
 
   getObjeto(): any {
-    return this.objeto;
+    return this.objet;
   }
 }

@@ -6,6 +6,7 @@ import {
   USERGROUPS_ENDPOINT,
   USERS_ENDPOINT,
 } from '../../../assets/api.constants';
+import { User } from '../../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -17,10 +18,10 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<any[]> {
-    return this.http.get<any[]>(`${API_URL}${USERS_ENDPOINT}`).pipe(
-      tap((_) => console.info('fetched users')),
-      catchError(this.handleError<any[]>(`${API_URL}${USERS_ENDPOINT}`))
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${API_URL}${USERS_ENDPOINT}`).pipe(
+      tap(_ => console.info('fetched users')),
+      catchError(this.handleError<User[]>(`${API_URL}${USERS_ENDPOINT}`))
     );
   }
 
@@ -28,7 +29,7 @@ export class UserService {
     return this.http
       .get<any[]>(`${API_URL}${USERGROUPS_ENDPOINT}/byIdGroup/${id}`)
       .pipe(
-        tap((_) =>
+        tap(_ =>
           console.info(
             'fetched user' + `${API_URL}${USERGROUPS_ENDPOINT}/byIdGroup/${id}`
           )
@@ -41,10 +42,10 @@ export class UserService {
       );
   }
 
-  getUser(id: number): Observable<any> {
-    return this.http.get<any[]>(`${API_URL}${USERS_ENDPOINT}/${id}`).pipe(
-      tap((_) => console.info('fetched users')),
-      catchError(this.handleError<any[]>(`${API_URL}${USERS_ENDPOINT}`))
+  getUser(id: number): Observable<User> {
+    return this.http.get<User>(`${API_URL}${USERS_ENDPOINT}/${id}`).pipe(
+      tap(_ => console.info('fetched users')),
+      catchError(this.handleError<User>(`${API_URL}${USERS_ENDPOINT}`))
     );
   }
 
@@ -53,6 +54,7 @@ export class UserService {
   }
 
   createUserGroup(data: any): Observable<any> {
+    console.log(data)
     return this.http.post<any>(`${API_URL}${USERGROUPS_ENDPOINT}`, data);
   }
 

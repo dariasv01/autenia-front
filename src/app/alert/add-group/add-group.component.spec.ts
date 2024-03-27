@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddGroupComponent } from './add-group.component';
 import { GroupService } from '../../services/group/group.service';
 import { of } from 'rxjs';
-import { Group } from '../../models/group';
 import { FormsModule } from '@angular/forms';
 
 describe('AddGroupComponent', () => {
@@ -27,7 +26,7 @@ describe('AddGroupComponent', () => {
     component = fixture.componentInstance;
 
     // Configurar el grupo inicial
-    component.nuevoGrupo = { id: 1, idUser: 1, nameGroup: 'New Group', totalSpent: 0, numberMembers: 0 };
+    component.newGroup = { id: 1, idUser: 1, nameGroup: 'New Group', totalSpent: 0, numberMembers: 0 };
 
     fixture.detectChanges();
   });
@@ -41,7 +40,7 @@ describe('AddGroupComponent', () => {
     const cerrarSpy = spyOn(component.cerrar, 'emit');
 
     // Act
-    component.cerrarNuevoGrupo();
+    component.closeNewGroup();
 
     // Assert
     expect(cerrarSpy).toHaveBeenCalled();
@@ -49,12 +48,12 @@ describe('AddGroupComponent', () => {
 
   it('should call createGroups method of GroupService and emit cerrar event when agregarGrupo is called', () => {
     // Arrange
-    groupServiceSpy.createGroups.and.returnValue(of({}));
+    groupServiceSpy.createGroups.and.returnValue(of());
 
     // Act
-    component.agregarGrupo();
+    component.createGroup();
 
     // Assert
-    expect(groupServiceSpy.createGroups).toHaveBeenCalledWith(component.nuevoGrupo);
+    expect(groupServiceSpy.createGroups).toHaveBeenCalledWith(component.newGroup);
   });
 });

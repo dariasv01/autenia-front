@@ -1,8 +1,8 @@
 <div class="buttons">
   <button (click)="goBack()" class="back-button">Volver Atrás</button>
-  <button (click)="abrirNuevoGasto()" id="addExpenseBtn">Añadir Gasto</button>
-  <button (click)="abrirNuevoUsuario()" id="addUserBtn">Añadir Usuario</button>
-  <button (click)="abrirResultado()" id="calculateBtn">Calcular</button>
+  <button (click)="openNewExpense()" id="addExpenseBtn">Añadir Gasto</button>
+  <button (click)="openNewUser()" id="addUserBtn">Añadir Usuario</button>
+  <button (click)="openResult()" id="calculateBtn">Calcular</button>
 </div>
 
 <section id="expenses">
@@ -11,7 +11,7 @@
     <li class="expense-item" *ngFor="let spent of expenses"expenses>
       <div class="expense-details">
         <div class="expense-info">
-          <span class="payer">{{obtenerNombrePorId(spent.idUser)}}</span>
+          <span class="payer">{{getNameById(spent.idUser)}}</span>
           <span class="date">{{spent.creationDate}}</span>
         </div>
       </div>
@@ -26,14 +26,14 @@
 </section>
 
 <app-add-expense
-  *ngIf="mostrarNuevoGasto"
-  (cerrar)="cerrarNuevoGasto()"
+  *ngIf="showNewExpense"
+  (cerrar)="closeNewExpense()"
 ></app-add-expense>
 <app-add-user
-  *ngIf="mostrarNuevoUsuario"
-  (cerrar)="cerrarNuevoUsuario()"
+  *ngIf="showNewUser"
+  (cerrar)="closeNewUser()"
 ></app-add-user>
 <app-show-result
-  *ngIf="mostrarResultado"
-  (cerrar)="cerrarResultado()"
+  *ngIf="showResult"
+  (cerrar)="closeResult()"
 ></app-show-result>

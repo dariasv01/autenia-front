@@ -56,7 +56,7 @@ describe('HomeComponent', () => {
       'navigate'
     ).and.callThrough();
 
-    component.navegarAVistaDestino(group);
+    component.navigateToGroup(group);
 
     expect(navigateSpy).toHaveBeenCalledWith(['/group'], {
       queryParams: { group: JSON.stringify(group) },

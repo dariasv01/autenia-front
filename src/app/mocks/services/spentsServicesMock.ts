@@ -3,7 +3,7 @@ import { SPENTS } from "../mock-spents";
 
 export const spentsServiceMock = {
     getSpents: () => of(SPENTS),
-    getSpentsByIdGroup: (id: number) => of(SPENTS),
-    getSpentsByIdGroupAndIdUser: (groupId: number, userId: number) => of(SPENTS),
-    createSpent: (data: any) => of(SPENTS[0]),
+    getSpentsByIdGroup: (_id: number) => of(SPENTS),
+    getSpentsByIdGroupAndIdUser: (_groupId: number, _userId: number) => of(SPENTS),
+    createSpent: (_data: any) => of(SPENTS[0]),
   };

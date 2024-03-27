@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class HomeComponent {
   groups: Group[] = [];
-  mostrarNuevoGrupo: boolean = false;
+  showNewGroup: boolean = false;
   groupSubscription: Subscription | undefined;
 
   constructor(private groupService: GroupService, private router: Router) {}
@@ -36,16 +36,16 @@ export class HomeComponent {
     }
   }
 
-  abrirNuevoGrupo(): void {
-    this.mostrarNuevoGrupo = true;
+  openNewGroup(): void {
+    this.showNewGroup = true;
   }
 
-  cerrarNuevoGrupo(): void {
-    this.mostrarNuevoGrupo = false;
+  closeNewGroup(): void {
+    this.showNewGroup = false;
     this.getGruops();
   }
 
-  navegarAVistaDestino(group: Group): void {
+  navigateToGroup(group: Group): void {
     this.router.navigate(['/group'], {
       queryParams: { group: JSON.stringify(group) },
     });

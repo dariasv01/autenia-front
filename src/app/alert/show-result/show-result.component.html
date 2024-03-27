@@ -1,9 +1,9 @@
 <div class="background">
   <div class="alert">
-    <span class="close" (click)="cerrarResultado()">&times;</span>
+    <span class="close" (click)="closeResult()">&times;</span>
     <h2>Listado de Usuarios</h2>
     <ul id="resultList">
-      <li class="result-item" *ngFor="let user of usersValance; let i = index"expenses>
+      <li class="result-item" *ngFor="let user of usersBalance; let i = index"expenses>
         <div class="result-details">
           <div class="result-info">
             <span class="payer">{{user.user.firstName}} {{user.user.lastName}}</span>

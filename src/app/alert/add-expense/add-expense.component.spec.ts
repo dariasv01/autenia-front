@@ -108,10 +108,9 @@ describe('AddExpenseComponent', () => {
     };
 
     spentsServiceSpy.createSpent.and.returnValue(of(mockResponse));
-    groupServiceSpy.createGroups.and.returnValue(of({}));
 
-    component.nuevoGasto = mockExpense;
-    component.crearNuevoGasto();
+    component.newExpense = mockExpense;
+    component.createExpense();
 
     expect(spentsServiceSpy.createSpent).toHaveBeenCalledWith(mockExpense);
     expect(groupServiceSpy.createGroups).toHaveBeenCalledWith(component.group);

@@ -1,11 +1,11 @@
 <div class="background">
     <div class="alert">
-      <span class="close" (click)="cerrarNuevoGasto()">&times;</span>
+      <span class="close" (click)="closeNewExpense()">&times;</span>
       <h2>Añadir Nuevo Gasto</h2>
       <form>
         <div class="form-group">
           <label for="usuario">Usuario:</label>
-          <select class="form-control" id="usuario" name="usuario" required [(ngModel)]="nuevoGasto.idUser">
+          <select class="form-control" id="usuario" name="usuario" required [(ngModel)]="newExpense.idUser">
             <option value=0 disabled selected>Seleccionar Usuario</option>
             <option *ngFor="let user of users" [value]=user.id>{{ user.firstName }} {{ user.lastName }}</option>
           </select>
@@ -18,7 +18,7 @@
             id="monto"
             name="monto"
             required
-            [(ngModel)]="nuevoGasto.amount"
+            [(ngModel)]="newExpense.amount"
           />
         </div>
         <div class="form-group">
@@ -29,10 +29,10 @@
             rows="3"
             name="descripcion"
             required
-            [(ngModel)]="nuevoGasto.description"
+            [(ngModel)]="newExpense.description"
           ></textarea>
         </div>
-        <button type="submit" (click)="crearNuevoGasto()" class="btn btn-primary">Guardar</button>
+        <button type="submit" (click)="createExpense()" class="btn btn-primary">Guardar</button>
       </form>
     </div>
   </div>

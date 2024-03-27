@@ -1,0 +1,733 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>autenia-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">autenia-front documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#API_URL" title="src/assets/api.constants.ts" ><b>API_URL</b>&nbsp;&nbsp;&nbsp;(src/.../api.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#API_URL" title="dist/autenia-front/browser/assets/api.constants.ts" ><b>API_URL</b>&nbsp;&nbsp;&nbsp;(dist/.../api.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#GROUPS" title="src/app/mocks/mock-groups.ts" ><b>GROUPS</b>&nbsp;&nbsp;&nbsp;(src/.../mock-groups.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#GROUPS_ENDPOINT" title="src/assets/api.constants.ts" ><b>GROUPS_ENDPOINT</b>&nbsp;&nbsp;&nbsp;(src/.../api.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#GROUPS_ENDPOINT" title="dist/autenia-front/browser/assets/api.constants.ts" ><b>GROUPS_ENDPOINT</b>&nbsp;&nbsp;&nbsp;(dist/.../api.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#groupServiceMock" title="src/app/mocks/services/groupServicesMock.ts" ><b>groupServiceMock</b>&nbsp;&nbsp;&nbsp;(src/.../groupServicesMock.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SPENTS" title="src/app/mocks/mock-spents.ts" ><b>SPENTS</b>&nbsp;&nbsp;&nbsp;(src/.../mock-spents.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SPENTS_ENDPOINT" title="src/assets/api.constants.ts" ><b>SPENTS_ENDPOINT</b>&nbsp;&nbsp;&nbsp;(src/.../api.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SPENTS_ENDPOINT" title="dist/autenia-front/browser/assets/api.constants.ts" ><b>SPENTS_ENDPOINT</b>&nbsp;&nbsp;&nbsp;(dist/.../api.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#spentsServiceMock" title="src/app/mocks/services/spentsServicesMock.ts" ><b>spentsServiceMock</b>&nbsp;&nbsp;&nbsp;(src/.../spentsServicesMock.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USERGROUPS_ENDPOINT" title="src/assets/api.constants.ts" ><b>USERGROUPS_ENDPOINT</b>&nbsp;&nbsp;&nbsp;(src/.../api.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USERGROUPS_ENDPOINT" title="dist/autenia-front/browser/assets/api.constants.ts" ><b>USERGROUPS_ENDPOINT</b>&nbsp;&nbsp;&nbsp;(dist/.../api.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USERS" title="src/app/mocks/mock-users.ts" ><b>USERS</b>&nbsp;&nbsp;&nbsp;(src/.../mock-users.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USERS_ENDPOINT" title="src/assets/api.constants.ts" ><b>USERS_ENDPOINT</b>&nbsp;&nbsp;&nbsp;(src/.../api.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USERS_ENDPOINT" title="dist/autenia-front/browser/assets/api.constants.ts" ><b>USERS_ENDPOINT</b>&nbsp;&nbsp;&nbsp;(dist/.../api.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#userServiceMock" title="src/app/mocks/services/userServicesMock.ts" ><b>userServiceMock</b>&nbsp;&nbsp;&nbsp;(src/.../userServicesMock.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/assets/api.constants.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="API_URL"></a>
+                    <span class="name">
+                        <span ><b>API_URL</b></span>
+                        <a href="#API_URL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;http://127.0.0.1:8080&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GROUPS_ENDPOINT"></a>
+                    <span class="name">
+                        <span ><b>GROUPS_ENDPOINT</b></span>
+                        <a href="#GROUPS_ENDPOINT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/api/groups&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SPENTS_ENDPOINT"></a>
+                    <span class="name">
+                        <span ><b>SPENTS_ENDPOINT</b></span>
+                        <a href="#SPENTS_ENDPOINT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/api/spents&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USERGROUPS_ENDPOINT"></a>
+                    <span class="name">
+                        <span ><b>USERGROUPS_ENDPOINT</b></span>
+                        <a href="#USERGROUPS_ENDPOINT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/api/usersGroup&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USERS_ENDPOINT"></a>
+                    <span class="name">
+                        <span ><b>USERS_ENDPOINT</b></span>
+                        <a href="#USERS_ENDPOINT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/api/users&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>dist/autenia-front/browser/assets/api.constants.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="API_URL"></a>
+                    <span class="name">
+                        <span ><b>API_URL</b></span>
+                        <a href="#API_URL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;http://127.0.0.1:8080&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GROUPS_ENDPOINT"></a>
+                    <span class="name">
+                        <span ><b>GROUPS_ENDPOINT</b></span>
+                        <a href="#GROUPS_ENDPOINT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/api/groups&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SPENTS_ENDPOINT"></a>
+                    <span class="name">
+                        <span ><b>SPENTS_ENDPOINT</b></span>
+                        <a href="#SPENTS_ENDPOINT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/api/spents&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USERGROUPS_ENDPOINT"></a>
+                    <span class="name">
+                        <span ><b>USERGROUPS_ENDPOINT</b></span>
+                        <a href="#USERGROUPS_ENDPOINT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/api/usersGroup&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USERS_ENDPOINT"></a>
+                    <span class="name">
+                        <span ><b>USERS_ENDPOINT</b></span>
+                        <a href="#USERS_ENDPOINT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;/api/users&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/mocks/mock-groups.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GROUPS"></a>
+                    <span class="name">
+                        <span ><b>GROUPS</b></span>
+                        <a href="#GROUPS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Group.html" target="_self" >Group[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {id:1,idUser:1,nameGroup:&quot;Grupo 1&quot;,numberMembers:3,totalSpent:25.2},
+    {id:2,idUser:1,nameGroup:&quot;Grupo 1&quot;,numberMembers:3,totalSpent:25.2},
+    {id:3,idUser:1,nameGroup:&quot;Grupo 1&quot;,numberMembers:3,totalSpent:25.2},
+    {id:4,idUser:1,nameGroup:&quot;Grupo 1&quot;,numberMembers:3,totalSpent:25.2},
+    {id:5,idUser:1,nameGroup:&quot;Grupo 1&quot;,numberMembers:3,totalSpent:25.2},
+    {id:6,idUser:1,nameGroup:&quot;Grupo 1&quot;,numberMembers:3,totalSpent:25.2}
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/mocks/services/groupServicesMock.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="groupServiceMock"></a>
+                    <span class="name">
+                        <span ><b>groupServiceMock</b></span>
+                        <a href="#groupServiceMock"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  getGroups: jasmine.createSpy(&#x27;getGroups&#x27;).and.returnValue(of(GROUPS)),
+  getGroup: jasmine.createSpy(&#x27;getGroup&#x27;).and.returnValue(of(GROUPS[0])),
+  createGroups: jasmine.createSpy(&#x27;createGroups&#x27;).and.returnValue(of({})),
+  getGroupByIdUser: jasmine.createSpy(&#x27;getGroupByIdUser&#x27;).and.returnValue(of(GROUPS))
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/mocks/mock-spents.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SPENTS"></a>
+                    <span class="name">
+                        <span ><b>SPENTS</b></span>
+                        <a href="#SPENTS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Spent.html" target="_self" >Spent[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  {
+    id: 1,
+    idUser: 0,
+    idGroup: 1,
+    creationDate: new Date(),
+    description: &#x27;&#x27;,
+    amount: 0,
+  },
+  {
+    id: 2,
+    idUser: 0,
+    idGroup: 1,
+    creationDate: new Date(),
+    description: &#x27;&#x27;,
+    amount: 0,
+  },
+  {
+    id: 3,
+    idUser: 0,
+    idGroup: 1,
+    creationDate: new Date(),
+    description: &#x27;&#x27;,
+    amount: 0,
+  },
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/mocks/services/spentsServicesMock.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="spentsServiceMock"></a>
+                    <span class="name">
+                        <span ><b>spentsServiceMock</b></span>
+                        <a href="#spentsServiceMock"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    getSpents: () &#x3D;&gt; of(SPENTS),
+    getSpentsByIdGroup: (_id: number) &#x3D;&gt; of(SPENTS),
+    getSpentsByIdGroupAndIdUser: (_groupId: number, _userId: number) &#x3D;&gt; of(SPENTS),
+    createSpent: (_data: any) &#x3D;&gt; of(SPENTS[0]),
+  }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/mocks/mock-users.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USERS"></a>
+                    <span class="name">
+                        <span ><b>USERS</b></span>
+                        <a href="#USERS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >User[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {id:1,firstName:&quot;David&quot;,lastName:&quot;Arias&quot;,email:&quot;david@gmail.com&quot;},
+    {id:2,firstName:&quot;David1&quot;,lastName:&quot;Arias&quot;,email:&quot;david@gmail.com&quot;},
+    {id:3,firstName:&quot;David2&quot;,lastName:&quot;Arias&quot;,email:&quot;david@gmail.com&quot;},
+    {id:4,firstName:&quot;David3&quot;,lastName:&quot;Arias&quot;,email:&quot;david@gmail.com&quot;},
+    {id:5,firstName:&quot;David4&quot;,lastName:&quot;Arias&quot;,email:&quot;david@gmail.com&quot;},
+    {id:6,firstName:&quot;David5&quot;,lastName:&quot;Arias&quot;,email:&quot;david@gmail.com&quot;},
+    {id:7,firstName:&quot;David6&quot;,lastName:&quot;Arias&quot;,email:&quot;david@gmail.com&quot;},
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/mocks/services/userServicesMock.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userServiceMock"></a>
+                    <span class="name">
+                        <span ><b>userServiceMock</b></span>
+                        <a href="#userServiceMock"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    getUsers: jasmine.createSpy(&#x27;getUsers&#x27;).and.returnValue(of(USERS)),
+    getUserByIdGroup: jasmine.createSpy(&#x27;getUserByIdGroup&#x27;).and.returnValue(of(USERS)),
+    getUser: jasmine.createSpy(&#x27;getUser&#x27;).and.returnValue(of(USERS[0])),
+    createUser: jasmine.createSpy(&#x27;createUser&#x27;).and.returnValue(of({})),
+    createUserGroup: jasmine.createSpy(&#x27;createUserGroup&#x27;).and.returnValue(of({})),
+  }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

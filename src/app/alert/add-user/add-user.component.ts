@@ -11,7 +11,7 @@ import { GroupService } from '../../services/group/group.service';
   styleUrl: './add-user.component.css',
 })
 export class AddUserComponent {
-  nuevoUsuario: User = {
+  newUser: User = {
     id: 0,
     firstName: '',
     lastName: '',
@@ -33,8 +33,8 @@ export class AddUserComponent {
 
   users: User[] = [];
 
-  usuarioSeleccionado: any;
-  crearNuevoUsuario: boolean = false;
+  userSelected: any;
+  createNewUserCheck: boolean = false;
 
   @Output() cerrar: EventEmitter<any> = new EventEmitter();
 
@@ -54,14 +54,14 @@ export class AddUserComponent {
     this.userServices.getUsers().subscribe((users) => (this.users = users));
   }
 
-  cerrarCrearUsuario(): void {
+  closeNewUser(): void {
     this.cerrar.emit();
   }
 
-  guardarUsuario(): void {
-    if (this.crearNuevoUsuario) {
-      this.userServices.createUser(this.nuevoUsuario).subscribe((response) => {
-        this.nuevoUsuario = response;
+  createUser(): void {
+    if (this.createNewUserCheck) {
+      this.userServices.createUser(this.newUser).subscribe((response) => {
+        this.userSelected = response;
         this.data.idUser = response.id;
         console.log(response);
         this.userServices.createUserGroup(this.data).subscribe((response) => {
@@ -74,10 +74,10 @@ export class AddUserComponent {
         });
       });
     } else {
-      this.userServices.createUserGroup(this.data).subscribe((response) => {
+      this.userServices.createUserGroup(this.data).subscribe((_) => {
         console.log('Relación Creada');
         this.group.numberMembers = this.group.numberMembers + 1;
-        this.groupService.createGroups(this.group).subscribe((response) => {
+        this.groupService.createGroups(this.group).subscribe((_) => {
           console.log('Grupo Actualizado');
           this.cerrar.emit();
         });

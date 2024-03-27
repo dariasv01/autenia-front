@@ -50,7 +50,7 @@ describe('AddUserComponent', () => {
 
     dataServiceSpy.getObjeto.and.returnValue(mockGroup);
     userServiceSpy.getUsers.and.returnValue(of(mockUsers));
-    groupServiceSpy.createGroups.and.returnValue(of({}));
+    groupServiceSpy.createGroups.and.returnValue(of());
 
     fixture.detectChanges();
   });
@@ -64,12 +64,12 @@ describe('AddUserComponent', () => {
   });
 
   it('should create new user and group relation', () => {
-    component.nuevoUsuario = { id: 3, firstName: 'Alice', lastName: 'Smith', email: 'alice@example.com' };
-    component.crearNuevoUsuario = true;
+    component.newUser = { id: 3, firstName: 'Alice', lastName: 'Smith', email: 'alice@example.com' };
+    component.createNewUserCheck = true;
 
-    component.guardarUsuario();
+    component.createUser();
 
-    expect(userServiceSpy.createUser).toHaveBeenCalledWith(component.nuevoUsuario); 
+    expect(userServiceSpy.createUser).toHaveBeenCalledWith(component.newUser); 
   });
 
 });

@@ -22,7 +22,7 @@ export class ShowResultComponent {
 
   users: User[] = [];
 
-  usersValance: any[] = [];
+  usersBalance: any[] = [];
 
   @Output() cerrar: EventEmitter<any> = new EventEmitter();
 
@@ -55,22 +55,22 @@ export class ShowResultComponent {
               response.forEach((element) => {
                 total = element.amount + total;
               });
-              let valanceNum =
+              let balanceNum =
                 total - this.group.totalSpent / this.group.numberMembers;
                 console.info(total)
-              this.usersValance.push({
+              this.usersBalance.push({
                 user: responseUser,
-                valance: valanceNum,
+                valance: balanceNum,
               });
             });
             
-        console.log(this.usersValance);
+        console.log(this.usersBalance);
         });
       });
     });
   }
 
-  cerrarResultado(): void {
+  closeResult(): void {
     this.cerrar.emit();
   }
 

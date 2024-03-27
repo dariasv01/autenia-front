@@ -1,13 +1,13 @@
 <div class="background">
 <div class="alert">
-    <span class="close" (click)="cerrarNuevoGrupo()">&times;</span>
+    <span class="close" (click)="closeNewGroup()">&times;</span>
     <h2>Añadir Nuevo Grupo</h2>
     <form>
       <div class="form-group">
         <label for="nombre">Nombre:</label>
-        <input type="text" class="form-control" id="nombre" [(ngModel)]="nuevoGrupo.nameGroup" name="nombre" required>
+        <input type="text" class="form-control" id="nombre" [(ngModel)]="newGroup.nameGroup" name="nombre" required>
       </div>
-      <button type="submit" class="btn btn-primary" (click)="agregarGrupo()">Guardar</button>
+      <button type="submit" class="btn btn-primary" (click)="createGroup()">Guardar</button>
     </form>
 </div>
   </div>

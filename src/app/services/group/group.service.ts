@@ -33,8 +33,8 @@ export class GroupService {
     )
   }
 
-  createGroups(data: any): Observable<any>{
-    return this.http.post<any>(`${API_URL}${GROUPS_ENDPOINT}`,data);
+  createGroups(data: Group): Observable<Group>{
+    return this.http.post<Group>(`${API_URL}${GROUPS_ENDPOINT}`,data);
   }
 
   getGroupByIdUser(id:number){

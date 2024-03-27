@@ -1,13 +1,13 @@
 <div class="background">
   <div class="create-user-alert">
-    <span class="close" (click)="cerrarCrearUsuario()">&times;</span>
+    <span class="close" (click)="closeNewUser()">&times;</span>
     <h2>Añadir Nuevo Usuario</h2>
     <form>
-      <div class="form-group" [hidden]="crearNuevoUsuario">
+      <div class="form-group" [hidden]="createNewUserCheck">
         <label>Seleccionar Usuario Existente:</label>
         <select
           class="form-control"
-          [(ngModel)]="usuarioSeleccionado"
+          [(ngModel)]="userSelected"
           name="usuarioSeleccionado" required [(ngModel)]="data.idUser">
           <option value=0 disabled selected>Seleccionar Usuario</option>
           <option *ngFor="let user of users" [value]=user.id>{{ user.firstName }} {{ user.firstName }}</option>
@@ -18,47 +18,47 @@
           type="checkbox"
           class="form-check-input"
           id="crearNuevoUsuario"
-          [(ngModel)]="crearNuevoUsuario"
+          [(ngModel)]="createNewUserCheck"
           name="crearNuevoUsuario"
         />
         <label class="form-check-label" for="crearNuevoUsuario"
           >Crear Nuevo Usuario</label
         >
       </div>
-      <div class="form-group" [hidden]="!crearNuevoUsuario">
+      <div class="form-group" [hidden]="!createNewUserCheck">
         <label for="nombre">Nombre:</label>
         <input
           type="text"
           class="form-control"
           id="nombre"
-          [(ngModel)]="nuevoUsuario.firstName"
+          [(ngModel)]="newUser.firstName"
           name="nombre"
           required
         />
       </div>
-      <div class="form-group" [hidden]="!crearNuevoUsuario">
+      <div class="form-group" [hidden]="!createNewUserCheck">
         <label for="apellido">Apellido:</label>
         <input
           type="text"
           class="form-control"
           id="apellido"
-          [(ngModel)]="nuevoUsuario.lastName"
+          [(ngModel)]="newUser.lastName"
           name="apellido"
           required
         />
       </div>
-      <div class="form-group" [hidden]="!crearNuevoUsuario">
+      <div class="form-group" [hidden]="!createNewUserCheck">
         <label for="correo">Correo:</label>
         <input
           type="email"
           class="form-control"
           id="correo"
-          [(ngModel)]="nuevoUsuario.email"
+          [(ngModel)]="newUser.email"
           name="correo"
           required
         />
       </div>
-      <button type="submit" class="btn btn-primary" (click)="guardarUsuario()">
+      <button type="submit" class="btn btn-primary" (click)="createUser()">
         Guardar
       </button>
     </form>

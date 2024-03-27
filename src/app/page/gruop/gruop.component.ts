@@ -63,38 +63,40 @@ export class GruopComponent {
     this.router.navigateByUrl('');
   }
 
-  mostrarNuevoGasto: boolean = false;
-  mostrarNuevoUsuario: boolean = false;
-  mostrarResultado: boolean = false;
+  showNewExpense: boolean = false;
+  showNewUser: boolean = false;
+  showResult: boolean = false;
 
-  abrirNuevoGasto(): void {
+  openNewExpense(): void {
     this.dataService.setObjeto(this.group);
-    this.mostrarNuevoGasto = true;
+    this.showNewExpense = true;
   }
 
-  cerrarNuevoGasto(): void {
-    this.mostrarNuevoGasto = false;
+  closeNewExpense(): void {
+    this.showNewExpense = false;
     this.getSpents(this.group.id);
   }
 
-  abrirNuevoUsuario(): void {
+  openNewUser(): void {
     this.dataService.setObjeto(this.group);
-    this.mostrarNuevoUsuario = true;
+    this.showNewUser = true;
   }
 
-  abrirResultado(): void {
+  openResult(): void {
     this.dataService.setObjeto(this.group);
-    this.mostrarResultado = true;
+    this.showResult = true;
   }
 
-  cerrarNuevoUsuario(): void {
-    this.mostrarNuevoUsuario = false;
+  closeNewUser(): void {
+    this.showNewUser = false;
     this.getUsers(this.group.id);
   }
-  cerrarResultado(): void {
-    this.mostrarResultado = false;
+
+  closeResult(): void {
+    this.showResult = false;
   }
-  obtenerNombrePorId(id: number): string | undefined {
+
+  getNameById(id: number): string | undefined {
     const objetoEncontrado = this.users.find((objeto) => objeto.id === id);
     return objetoEncontrado
       ? objetoEncontrado.firstName + ' ' + objetoEncontrado.lastName

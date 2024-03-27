@@ -9,7 +9,7 @@ import { GroupService } from '../../services/group/group.service';
 })
 export class AddGroupComponent {
 
-  nuevoGrupo: Group = {
+  newGroup: Group = {
     id: 0,
     idUser: 0,
     nameGroup: '',
@@ -21,13 +21,13 @@ export class AddGroupComponent {
   
   constructor(private groupServices: GroupService) { }
 
-  cerrarNuevoGrupo(): void {
+  closeNewGroup(): void {
     this.cerrar.emit();
   }
 
-  agregarGrupo(): void {
-    console.log('Nuevo grupo:', this.nuevoGrupo);
-    this.groupServices.createGroups(this.nuevoGrupo).subscribe(response =>{
+  createGroup(): void {
+    console.log('Nuevo grupo:', this.newGroup);
+    this.groupServices.createGroups(this.newGroup).subscribe(response =>{
       console.log(response)
       this.cerrar.emit();
     })

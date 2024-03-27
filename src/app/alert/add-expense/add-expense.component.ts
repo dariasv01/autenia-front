@@ -21,7 +21,7 @@ export class AddExpenseComponent {
     numberMembers: 0,
   };
 
-  nuevoGasto: Spent = {
+  newExpense: Spent = {
     id: 0,
     idUser: 0,
     idGroup: this.group.id,
@@ -43,7 +43,7 @@ export class AddExpenseComponent {
 
   ngOnInit(): void {
     this.group = this.dataService.getObjeto();
-    this.nuevoGasto.idGroup = this.group.id;
+    this.newExpense.idGroup = this.group.id;
     this.getUsers();
   }
 
@@ -57,19 +57,19 @@ export class AddExpenseComponent {
     });
   }
 
-  cerrarNuevoGasto(): void {
+  closeNewExpense(): void {
     this.cerrar.emit();
   }
   updateGroup(): void {
-    this.group.totalSpent = this.group.totalSpent + this.nuevoGasto.amount;
-    this.groupService.createGroups(this.group).subscribe((response) => {
+    this.group.totalSpent = this.group.totalSpent + this.newExpense.amount;
+    this.groupService.createGroups(this.group).subscribe(_ => {
       console.log('Grupo Actualizado');
     });
   }
 
-  crearNuevoGasto(): void {
-    console.log('Nuevo gasto:', this.nuevoGasto);
-    this.spentsServices.createSpent(this.nuevoGasto).subscribe((response) => {
+  createExpense(): void {
+    console.log('Nuevo gasto:', this.newExpense);
+    this.spentsServices.createSpent(this.newExpense).subscribe((response) => {
       console.log(response);
       this.updateGroup();
       this.cerrar.emit();
